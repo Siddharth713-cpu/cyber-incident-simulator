@@ -1,0 +1,17 @@
+Input: 300 host(s) accepted, 596 edge(s), 3 entry point(s), 0 offline.
+
+=== Explanation (bnb) ===
+Attack starts at: H001, H024, H039.
+With no action, the attacker can reach 70 host(s) worth 4483 of 10476 total criticality.
+Recommended: isolate H001, H069, H118, H128, H149 (cost 56 of budget 60).
+  - H001: removing it from the plan would add 2880 of loss.
+  - H069: removing it from the plan would add 641 of loss.
+  - H118: removing it from the plan would add 1727 of loss.
+  - H128: removing it from the plan would add 495 of loss.
+  - H149: removing it from the plan would add 1311 of loss.
+Worst-case loss falls from 4483 to 2 (100% reduction).
+Still exposed (highest value first): H024 (1), H039 (1).
+Result quality: OPTIMAL (proved).
+
+algo     loss               cost  runtime_s     explored       pruned status
+bnb      2                    56     7.5622        34155        16949 OPTIMAL (proved)

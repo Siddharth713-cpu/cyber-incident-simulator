@@ -1,0 +1,28 @@
+Input: 8 host(s) accepted, 8 edge(s), 1 entry point(s), 0 offline.
+
+Branch-and-bound trace (first 7 nodes):
+  node 1    depth=0  isolated={-} loss=131 LB=31 best=81 -> branch on Y (ratio 25): isolate first, then forbid
+  node 2    depth=1  isolated={Y} loss=101 LB=51 best=81 -> branch on Z (ratio 25): isolate first, then forbid
+  node 3    depth=2  isolated={Y,Z} loss=51 LB=51 best=51 -> leaf (no affordable candidate)
+  node 4    depth=2  isolated={Y} loss=101 LB=101 best=51 -> leaf (no affordable candidate)
+  node 5    depth=1  isolated={-} loss=131 LB=47.67 best=51 -> branch on Z (ratio 25): isolate first, then forbid
+  node 6    depth=2  isolated={Z} loss=101 LB=101 best=51 -> leaf (no affordable candidate)
+  node 7    depth=2  isolated={-} loss=131 LB=81 best=51 -> PRUNED (LB >= best)
+
+=== Explanation (bnb) ===
+Attack starts at: E.
+With no action, the attacker can reach 8 host(s) worth 131 of 131 total criticality.
+Recommended: isolate Y, Z (cost 4 of budget 4).
+  - Y: removing it from the plan would add 50 of loss.
+  - Z: removing it from the plan would add 50 of loss.
+Worst-case loss falls from 131 to 51 (61% reduction).
+Still exposed (highest value first): X1 (40), X (10), E (1).
+Result quality: OPTIMAL (proved).
+
+algo     loss               cost  runtime_s     explored       pruned status
+bnb      51                    4     0.0001            7            1 OPTIMAL (proved)
+greedy   81                    3     0.0000            6            0 HEURISTIC (no optimality guarantee)
+brute    51                    4     0.0000            5            0 OPTIMAL (exhaustive)
+  bnb gap from best-known optimum: 0.0%
+  greedy gap from best-known optimum: 58.8%
+  brute gap from best-known optimum: 0.0%

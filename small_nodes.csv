@@ -1,0 +1,9 @@
+id,name,criticality,isolation_cost,is_entry,status
+E,Internet gateway,1,99,1,active
+X,App server X,10,3,0,active
+X1,Database X1,40,6,0,active
+Y,App server Y,10,2,0,active
+Y1,Database Y1,20,5,0,active
+Z,App server Z,10,2,0,active
+Z1,Database Z1,20,5,0,active
+W,Shared file server,20,6,0,active

@@ -1,0 +1,24 @@
+Input: 5 host(s) accepted, 3 edge(s), 1 entry point(s), 1 offline.
+  REJECTED nodes row 4: duplicate id 'X' (first occurrence kept)
+  REJECTED nodes row 6: missing criticality (id Y)
+  REJECTED nodes row 7: isolation_cost must be > 0 (id Y1)
+  REJECTED nodes row 9: non-numeric criticality: 'twenty' (id Z1)
+  REJECTED nodes row 10: invalid status 'decommissioned' (id W)
+  REJECTED nodes row 12: missing id
+  REJECTED edges row 7: unknown node in edge 'Z' -> 'GHOST'
+  REJECTED edges row 8: unknown node in edge 'Y' -> 'Y1'
+  note: nodes row 8: is_entry missing for Z, assumed 0
+  note: edges row 3: duplicate edge E -> X dropped
+  note: edges row 5: self-loop on X dropped
+
+=== Explanation (bnb) ===
+Attack starts at: E.
+With no action, the attacker can reach 4 host(s) worth 61 of 61 total criticality.
+Recommended: isolate X (cost 3 of budget 4).
+  - X: removing it from the plan would add 50 of loss.
+Worst-case loss falls from 61 to 11 (82% reduction).
+Still exposed (highest value first): Z (10), E (1).
+Result quality: OPTIMAL (proved).
+
+algo     loss               cost  runtime_s     explored       pruned status
+bnb      11                    3     0.0001            3            1 OPTIMAL (proved)

@@ -1,0 +1,12 @@
+id,name,criticality,isolation_cost,is_entry,status
+E,Internet gateway,1,99,1,active
+X,App server X,10,3,0,active
+X,App server X (duplicate row),999,1,0,active
+X1,Database X1,40,6,0,active
+Y,App server Y,,2,0,active
+Y1,Database Y1,20,-5,0,active
+Z,App server Z,10,2,,active
+Z1,Database Z1,twenty,5,0,active
+W,Shared file server,20,6,0,decommissioned
+V,Old backup,15,3,0,offline
+,No id,5,5,0,active
